@@ -7,7 +7,7 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 const main = document.getElementById('main');
 const button = document.getElementById('button');
-
+const genreButtons = document.querySelectorAll('.genre-btn');
 
 
 form.addEventListener('submit', (e) => {
@@ -20,12 +20,13 @@ form.addEventListener('submit', (e) => {
 });
 
 
-
-
-  
-
-
-
+genreButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const genreId = button.dataset.genreid;
+    const genreURL = BASE_URL + '/discover/movie?' + API_KEY + '&with_genres=' + genreId;
+    getMovies(genreURL);
+  });
+});
 
 getMovies(API_URL);
 
@@ -42,7 +43,7 @@ function showMovies(data) {
   main.innerHTML = '';
 
   data.forEach((movie) => {
-    const { title, poster_path, vote_average, overview } = movie;
+    const {id, title, poster_path, vote_average, overview } = movie;
     const movieE1 = document.createElement('div');
     movieE1.classList.add('movie');
     movieE1.innerHTML = `
@@ -55,6 +56,7 @@ function showMovies(data) {
         <div class="overview">
           <h3>overview</h3>
           ${overview}
+          <a href="https://vidsrc.to/embed/movie/${id}" _target="blank">watch</a>
         </div>
       </div>
     `;
