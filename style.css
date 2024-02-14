@@ -22,15 +22,15 @@ body {
   /* background-color: transparent;  */
   background-color: rgb(193, 235, 235);
    border: 2px solid rgb(97, 144, 144);
-  padding: 15px;
+  padding: 10px;
   border-radius: 25px;
   font-size: 15px;
   font-family: inherit;
   color: rgb(14, 14, 14);
   margin-top: 50px;
   margin-left: 40rem;
-  width: 30rem;
-
+  width: 22rem;
+position: relative;
 }
 
 .search:focus {
@@ -42,6 +42,22 @@ body {
   color: rgb(10, 17, 19);
 
 }
+
+.btninput{
+  position: relative;
+}
+.fa-magnifying-glass{
+  position: absolute;
+left: 60rem;
+  top: 60px;
+}
+
+/* .ss{
+  position: absolute;
+  left: 66rem;
+  top: 50px;
+ 
+} */
 
 .genre {
   display: flex;
